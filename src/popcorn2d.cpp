@@ -106,6 +106,7 @@ void computeImage(T* image) {
           int py = transY (yk);
           int px = transX (xk);
           if ( px >= 0 && py >= 0 && px  <  WIDTH && py < HEIGHT) {
+#pragma acc atomic update
             image[ px + py*WIDTH ] += 0.001;
           }
         }
